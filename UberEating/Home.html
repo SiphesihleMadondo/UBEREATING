@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+
+    <script src="Filter.js"></script>
+
+</head>
+<body ng-app="myApp" ng-controller="Filter">
+    <br />
+    <ng-form>
+
+        <div class="container">
+
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">UBEREATS</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                              
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+                            <li><a href="#"><span ></span> Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+
+
+            <input ng-model="searchText" type="search" class="form-control" placeholder="street address,state, city" />
+
+            <br />
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>Restaurants </h1>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="container" ng-show="searchText" ng-repeat="locate in location | filter:search">
+                <h2></h2>
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{locate.Location}}</div>
+                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-footer"><button><a class="btn btn-large btn-info" href="Restaurants.html">View</a></button></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="Images/food_picture.jpg" class="img-responsive" />
+                        <div class="caption">
+
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ng-form>
+</body>
+</html>

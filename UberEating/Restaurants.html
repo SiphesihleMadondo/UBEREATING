@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script>
+
+        var app = angular.module("myApp", [])
+        app.controller("UserCrl", function ($scope, $http,$window) {
+
+            GetAll();
+            function GetAll()
+            {
+                alert("eita");
+                $http.get("api/Restaurants").then(function (response) { alert("Success"); $scope.User = response.data },
+
+                    function () {
+                        alert("Fail to display");
+
+                    })
+            }
+           
+        })
+    </script>
+
+</head>
+<body ng-app="myApp" ng-controller="UserCrl">
+    
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Restaurants </h1>
+            <p></p>
+        </div>
+    </div>
+
+    <div class="container" ng-repeat="user in User">
+        <h2></h2>
+        <div class="panel panel-default" >
+            <div class="panel-heading">{{user.Name}}</div>
+            <div class="panel-body">Image</div>
+            <div class="panel-footer"><button><a class="btn btn-large btn-info" href="RestaurantDetails.html">View</a></button></div>
+        </div>
+    </div>
+
+</body>
+</html>

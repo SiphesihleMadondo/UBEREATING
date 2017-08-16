@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    
+    <link href="Content/Site.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-cookies.min.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
+    <script src="Scripts/angular-loader.min.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/jquery.validate.js"></script>
+
+    <script>
+        var App = angular.module("myApp", [])
+        
+        //creating my controller, my controller also serve as service
+        App.controller("User_TableController", function ($scope, $http,$window) {
+            
+          
+            $scope.InsertUser = function (User) {
+
+              
+                
+                $http.post('api/User_Table', User).then(function (response) { /* GetAll();*/alert("successfully Registered") }, function () { alert("Failed to insert") });
+                $window.location.href = "/Home.html";
+                
+            }
+            
+            
+          
+
+        })
+      
+
+
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="User_TableController">
+   
+
+    <form>
+        
+        <label for="example-url-input" class="col-2 col-form-label">First Name</label>
+        
+
+        <input ng-model="User.Name" class="form-control" type="text" placeholder="First Name" />
+
+
+
+        <label for="example-search-input" class="col-2 col-form-label">Last Name</label>
+
+
+        <input ng-model="User.Surname" class="form-control" type="text" placeholder="Last Name" />
+
+
+
+        <label for="example-email-input" class="col-2 col-form-label">Email</label>
+
+
+        <input ng-model="User.Email" class="form-control" type="email" placeholder="bootstrap@example.com" />
+
+
+
+
+
+
+        <label for="example-url-input" class="col-2 col-form-label">Mobile Number</label>
+
+
+        <input ng-model="User.MobileNumbe" class="form-control" type="tel" placeholder="+2(72)9210617" />
+
+
+
+
+        <label for="example-tel-input" class="col-2 col-form-label">Password</label>
+
+
+        <input ng-model="User.Password" class="form-control" type="password" placeholder="hunter2" />
+
+
+
+
+
+        <label for="example-password-input" class="col-2 col-form-label">Credit Card</label>
+
+        <input ng-model="User.CredicardNumber" class="form-control" type="number" placeholder="55444667854333456" />
+
+
+
+
+        <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+
+        <input ng-model="User.ExpiryDate" class="form-control" type="datetime-local" placeholder="2011-08-19T13:45:00" />
+
+
+        <label for="example-date-input" class="col-2 col-form-label">CVV</label>
+
+        <input ng-model="User.CVV" class="form-control" type="number" placeholder="239" />
+
+        <br />
+
+       <input type="submit" ng-click="InsertUser(User)" class="btn btn-primary" value="Sing Up"  />
+
+         <!--<button type="submit" class="btn btn-primary" ng-click="InsertUser(User)">Sing Up</button>-->
+  </form>
+        
+</body>
+</html>
